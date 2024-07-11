@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Job Search Portal</title>
+    <style>
+        body {
+            font-family: 'Cairo', sans-serif;
+            background: linear-gradient(120deg, #2980b9, #2c3e50);
+            color: #ecf0f1;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+        .header {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .header h1 {
+            font-size: 2.5em;
+            margin: 0;
+            color: #ecf0f1;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+        .header p {
+            font-size: 1.5em;
+            margin: 10px 0 0 0;
+            color: #bdc3c7;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+        }
+        .container {
+            display: flex;
+            overflow: hidden;
+            width: 100%;
+            max-width: 1200px;
+            height: 70vh;
+            background-color: #34495e;
+            border-radius: 10px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
+            position: relative;
+        }
+        iframe {
+            flex: 1;
+            border: none;
+            display: none;
+            transition: opacity 0.5s ease-in-out;
+            opacity: 0;
+        }
+        iframe.visible {
+            display: block;
+            opacity: 1;
+        }
+        .buttons {
+            margin-top: 20px;
+            display: flex;
+            gap: 20px;
+        }
+        .buttons button {
+            padding: 10px 20px;
+            font-size: 1em;
+            cursor: pointer;
+            border: none;
+            border-radius: 5px;
+            background-color: #e74c3c;
+            color: #fff;
+            transition: background-color 0.3s ease;
+        }
+        .buttons button:hover {
+            background-color: #c0392b;
+        }
+        .buttons .show-third {
+            background-color: #3498db;
+        }
+        .buttons .show-third:hover {
+            background-color: #2980b9;
+        }
+    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="header">
+        <h1>Job Search Portal</h1>
+        <p id="quote">...</p>
+    </div>
+    <div class="container">
+        <iframe id="iframe1" src="https://forasna.com/a/%D9%88%D8%B8%D8%A7%D8%A6%D9%81-%D9%82%D9%86%D8%A7" class="visible" loading="lazy"></iframe>
+        <iframe id="iframe2" src="https://egypt.tanqeeb.com/ar/s/%D9%88%D8%B8%D8%A7%D8%A6%D9%81/%D9%88%D8%B8%D8%A7%D8%A6%D9%81-%D9%85%D8%B5%D8%B1/%D9%88%D8%B8%D8%A7%D8%A6%D9%81-%D9%81%D9%89-%D9%82%D9%86%D8%A7" loading="lazy"></iframe>
+    </div>
+    <div class="buttons">
+        <button onclick="toggleIframe()">Toggle Sites</button>
+        <button class="show-third" onclick="window.open('https://wuzzuf.net/search/jobs/?a=hpb%7Cspbg&q=Qena', '_blank')">Open Third Site</button>
+    </div>
+
+    <script>
+        const quotes = [
+            "Success is not final; failure is not fatal: It is the courage to continue that counts.",
+            "The only limit to our realization of tomorrow is our doubts of today.",
+            "The future belongs to those who believe in the beauty of their dreams.",
+            "Hardships often prepare ordinary people for an extraordinary destiny.",
+            "The best way to predict the future is to create it.",
+            "Your time is limited, don’t waste it living someone else’s life.",
+            "The only way to do great work is to love what you do.",
+            "Don’t watch the clock; do what it does. Keep going.",
+            "Believe you can and you’re halfway there."
+        ];
+
+        document.getElementById("quote").innerText = quotes[Math.floor(Math.random() * quotes.length)];
+
+        function toggleIframe() {
+            const iframe1 = document.getElementById('iframe1');
+            const iframe2 = document.getElementById('iframe2');
+            if (iframe1.classList.contains('visible')) {
+                iframe1.classList.remove('visible');
+                iframe2.classList.add('visible');
+            } else {
+                iframe1.classList.add('visible');
+                iframe2.classList.remove('visible');
+            }
+        }
+    </script>
+</body>
+</html>
